@@ -15,9 +15,11 @@ namespace Full_GRASP_And_SOLID
 
         public Product FinalProduct { get; set; }
 
-        public void AddStep(Step step)
+        public void AddStep(Product producto, int quantity, Equipment equipment, int time)
         {
-            this.steps.Add(step);
+            Step stepToAdd = new Step(producto, quantity, equipment, time);
+            
+            this.steps.Add(stepToAdd);
         }
 
         public void RemoveStep(Step step)

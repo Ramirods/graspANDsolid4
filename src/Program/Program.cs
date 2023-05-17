@@ -16,14 +16,21 @@ namespace Full_GRASP_And_SOLID
 
         private static List<Equipment> equipmentCatalog = new List<Equipment>();
 
-        public static void Main(string[] args)
+       public static void Main(string[] args)
         {
             PopulateCatalogs();
 
             Recipe recipe = new Recipe();
             recipe.FinalProduct = GetProduct("Café con leche");
-            recipe.AddStep(new Step(GetProduct("Café"), 100, GetEquipment("Cafetera"), 120));
-            recipe.AddStep(new Step(GetProduct("Leche"), 200, GetEquipment("Hervidor"), 60));
+
+            Product cafe = GetProduct("Café");
+            Product leche = GetProduct("Leche");
+
+            Equipment cafetera = GetEquipment("Cafetera");
+            Equipment hervidor = GetEquipment("Hervidor");
+
+            recipe.AddStep(cafe, 100, cafetera, 120);
+            recipe.AddStep(leche, 200, hervidor, 60);
 
             IPrinter printer;
             printer = new ConsolePrinter();
